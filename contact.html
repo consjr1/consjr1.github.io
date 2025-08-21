@@ -236,6 +236,18 @@
     
     <!-- Custom JavaScript -->
     <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+  const navLinks = document.querySelectorAll('.nav-link');
+  const currentPath = window.location.pathname;
+
+  navLinks.forEach(link => {
+    // Find a direct match for the current page's path, or handle the home page
+    if (link.getAttribute('href') === currentPath || (link.getAttribute('href') === '/' && currentPath === '/')) {
+      link.classList.add('active');
+    }
+  });
+});
         // Enhanced scroll animations
         const observerOptions = {
             threshold: 0.1,
